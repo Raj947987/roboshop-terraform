@@ -8,8 +8,9 @@ module "instances" {
   source = "git::https://github.com/Raj947987/tf-module-app.git"
   component = each.key
   env = var.env
-}module "vpc" {
-  source = "git::https://github.com/raghudevopsb73/tf-module-vpc.git"
+}
+module "vpc" {
+  source = "https://github.com/Raj947987/tf-module-app.git"
 
   for_each   = var.vpc
   cidr_block = each.value["cidr_block"]
