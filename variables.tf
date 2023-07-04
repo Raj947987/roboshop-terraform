@@ -13,3 +13,4 @@ variable "documentdb" {}
 variable "elasticache" {}
 variable "alb" {}
 variable "components" {}
+variable "item" {}
