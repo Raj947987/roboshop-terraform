@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "git::https://github.com/raghudevopsb73/tf-module-vpc.git"
+  source = "git::https://github.com/Raj947987/tf-module-vpc.git"
 
   for_each   = var.vpc
   cidr_block = each.value["cidr_block"]
@@ -13,7 +13,7 @@ module "vpc" {
 }
 
 module "rabbitmq" {
-  source = "git::https://github.com/raghudevopsb73/tf-module-rabbitmq.git"
+  source = "git::https://github.com/Raj947987/tf-module-rabbitmq.git"
 
   for_each      = var.rabbitmq
   component     = each.value["component"]
@@ -31,7 +31,7 @@ module "rabbitmq" {
 }
 
 module "rds" {
-  source = "git::https://github.com/raghudevopsb73/tf-module-rds.git"
+  source = "git::https://github.com/Raj947987/tf-module-rds.git"
 
   for_each       = var.rds
   component      = each.value["component"]
@@ -51,7 +51,7 @@ module "rds" {
 }
 
 module "documentdb" {
-  source = "git::https://github.com/raghudevopsb73/tf-module-documentdb.git"
+  source = "git::https://github.com/Raj947987/tf-module-documentdb.git"
 
   for_each          = var.documentdb
   component         = each.value["component"]
@@ -69,7 +69,7 @@ module "documentdb" {
 }
 
 module "elasticache" {
-  source = "git::https://github.com/raghudevopsb73/tf-module-elasticache.git"
+  source = "git::https://github.com/Raj947987/tf-module-elasticache.git"
 
   for_each                = var.elasticache
   component               = each.value["component"]
@@ -89,7 +89,7 @@ module "elasticache" {
 }
 
 module "alb" {
-  source = "git::https://github.com/raghudevopsb73/tf-module-alb.git"
+  source = "git::https://github.com/Raj947987/tf-module-alb.git"
 
   for_each           = var.alb
   name               = each.value["name"]
@@ -107,7 +107,7 @@ module "apps" {
 
   depends_on = [module.vpc, module.rabbitmq, module.documentdb, module.elasticache, module.alb, module.rds]
 
-  source = "git::https://github.com/raghudevopsb73/tf-module-app.git"
+  source = "git::https://github.com/Raj947987/tf-module-app.git"
 
   for_each           = var.apps
   app_port           = each.value["app_port"]
